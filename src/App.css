@@ -1,0 +1,231 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+}
+
+.app {
+  text-align: center;
+  max-width: 375px;
+  margin: 0 auto;
+  background-color: white;
+  border: 1px solid #ddd;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #ff9f18;
+  color: white;
+}
+
+
+
+.lang-switch {
+  display: flex;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.lang-btn.active {
+  text-decoration: underline;
+}
+
+.logo {
+  display: flex;
+  align-items: center; /* 텍스트와 이미지를 수평으로 정렬 */
+}
+
+.logo-image {
+  width: 40px; /* '아'와 비슷한 크기로 조정 */
+  height: 40px;
+  margin-right: 10px; /* 텍스트와 이미지 사이에 여백 추가 */
+}
+
+.app-title {
+  font-size: 1.5rem; /* 텍스트 크기 */
+  font-weight: bold;
+}
+
+
+.language-toggle {
+  display: flex;
+}
+
+.lang-btn {
+  background: white;
+  color: #ffa500;
+  border: none;
+  padding: 5px 10px;
+  font-weight: bold;
+  margin-left: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.menu-tabs {
+  display: flex;
+  justify-content: flex-start; /* 버튼 왼쪽 정렬 */
+  background-color: #f1f1f1;
+  padding: 10px 0;
+  overflow-x: auto; /* 탭이 많아질 때 가로 스크롤 추가 */
+  scrollbar-width: none; /* Firefox에서 스크롤바 숨기기 */
+}
+
+.menu-tabs::-webkit-scrollbar {
+  display: none; /* Chrome, Safari에서 스크롤바 숨기기 */
+}
+
+
+
+.menu-tab {
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.menu-tab.active {
+  color: #ffa500;
+  border-bottom: 2px solid #ffa500;
+}
+
+.content {
+  padding: 20px;
+}
+
+.qr-placeholder {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.qr-image {
+  width: 150px;
+  height: 150px;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #aaa;
+  border-radius: 10px;
+}
+
+.info-card {
+  background-color: #fff; /* 배경색을 하얀색으로 변경 */
+  padding: 20px;
+  border: 1px solid #ffa500;
+  border-radius: 10px;
+  text-align: left;
+  margin: 0 20px;
+}
+
+
+.info-card h2 {
+  color: #333;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  color: #666;
+  margin: 5px 0;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  color: #333;
+  margin-top: 15px;
+}
+
+.price {
+  color: #ffa500;
+}
+
+.heart {
+  color: red;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  background-color: #ffffff;
+  padding: 30px;
+  color: white;
+}
+
+.footer-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #d9d9d9;  
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-btn img {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 5px;
+}
+
+.footer-btn.active {
+  color: #ffc062;
+  font-weight: bold;
+}
+
+.footer-btn.active img {
+  filter: invert(85%) sepia(59%) saturate(982%) hue-rotate(312deg) brightness(103%) contrast(101%);
+}
+
+.menu-tab {
+  font-size: 16px;
+  color: black;
+  border: none;
+  background: none;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.menu-tab.active {
+  color: orange;
+  border-bottom: 2px solid orange;
+}
+
+.qr-placeholder {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.qr-image {
+  width: 150px;
+  height: 150px;
+  background-color: #ddd;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #555;
+}
+

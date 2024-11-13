@@ -1,0 +1,37 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ff9f18;
+    color: white;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    height: 47px;
+    width: 60px;
+    margin-right: 10px;
+  }
+  
+  .lang-switch {
+    display: flex;
+  }
+  
+  .lang-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .lang-btn.active {
+    text-decoration: underline;
+  }
+  

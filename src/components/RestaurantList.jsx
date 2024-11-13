@@ -1,0 +1,68 @@
+import { useState } from 'react';
+import '../styles/restaurantList.css';
+import heartIcon from '../images/heart.png'; // 즐겨찾기 아이콘 추가
+
+const restaurants = [
+  {
+    name: '남산학사',
+    weekdaysHours: '07:00~21:00',
+    weekendHours: '08:00~19:00',
+    holydayHours: '08:00~19:00',
+    menu: [
+      { item: '라면', price: '3000원', likes: 50 },
+      { item: '김밥', price: '4000원', likes: 90 },
+      { item: '치즈돈까스', price: '8000원', likes: 125 },
+    ],
+  },
+  {
+    name: '가든쿡',
+    weekdaysHours: '08:00~19:00',
+    weekendHours: '09:00~17:00',
+    holydayHours: '09:00~17:00',
+    menu: [
+      { item: '햄버거', price: '5500원', likes: 150 },
+      { item: '스파게티', price: '7500원', likes: 200 },
+      { item: '샐러드', price: '6000원', likes: 80 },
+    ],
+  },
+];
+
+function RestaurantList() {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  // 특정 인덱스의 레스토랑을 토글하는 함수
+  const toggleDetails = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <section className="restaurant-list">
+      {restaurants.map((restaurant, index) => (
+        <div key={index} className="restaurant">
+          <div className="restaurant-header" onClick={() => toggleDetails(index)}>
+            <h2>{restaurant.name}</h2>
+            <div className="hours">
+              <p>주중: {restaurant.weekdaysHours}</p>
+              <p>주말: {restaurant.weekendHours}</p>
+              <p>공휴일: {restaurant.holydayHours}</p>
+            </div>
+          </div>
+          <div className={`menu-list ${openIndex === index ? 'open' : ''}`}>
+            {restaurant.menu.map((menuItem, menuIndex) => (
+              <div key={menuIndex} className="menu-item">
+                <span>{menuItem.item}</span>
+                <span>{menuItem.price}</span>
+                <span className="like">
+                  <img src={heartIcon} alt="좋아요" className="heart-icon" />
+                  {menuItem.likes}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+  );
+}
+
+export default RestaurantList;
