@@ -1,0 +1,86 @@
+.menu-tabs {
+    display: flex;
+    justify-content: center;
+    background-color: #f1f1f1;
+    padding: 10px 0;
+}
+
+.menu-tab {
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: #333;
+    font-size: 1rem;
+}
+
+.menu-tab.active {
+    color: #ffc062;
+    border-bottom: 2px solid #ffc062;
+    align-items: center;
+}
+
+.content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.qr-placeholder {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.qr-image {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #aaa;
+    border-radius: 10px;
+    border: 1px solid #ffc062;
+}
+
+.info-card {
+    background-color: #ffffff;
+    padding: 40px;
+    border: 1px solid #ffc062;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-card h2 {
+    color: black;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    color: black;
+    margin: 5px 0;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    color: #333;
+    margin-top: 30px;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 10px;
+}
+
+.price {
+    color: #ffc062;
+}
