@@ -6,9 +6,62 @@ import heartIcon from '../images/heart.png';
 
 function FoodTicket() {
   const tickets = [
-    { id: '식권1', qrText: 'https://example.com/qrcode1', name: '삼겹김치철판', price: '6500원', likes: 99 },
-    { id: '식권2', qrText: 'https://example.com/qrcode2', name: '돼지불백', price: '7000원', likes: 88 },
-    { id: '식권3', qrText: 'https://example.com/qrcode3', name: '돼지불백', price: '7000원', likes: 88 },
+    
+      {
+        id: 1,
+        uniqueIdentifier: "string",
+        orderNumber: 0,
+        used: true,
+        restaurantId: 1,
+        restaurantName: "상록원1층",
+        menuItemId: 1,
+        menuName: "솥앤누들-삼겹살김치철판",
+        menuPrice: 5500,
+        operatingHours: "11:30-19:00",
+        dailyUsageLimit: 500,
+        dailyUsageCount: 0,
+        totalUsageCount: 2000,
+        dailyVoucherSales: 0,
+        totalVoucherSales: 2000,
+        likedCount: 0
+      },
+      {
+        id: 2,
+        uniqueIdentifier: "string",
+        orderNumber: 0,
+        used: true,
+        restaurantId: 1,
+        restaurantName: "상록원1층",
+        menuItemId: 2,
+        menuName: "솥앤누들-치즈불닭철판",
+        menuPrice: 5800,
+        operatingHours: "11:30-19:00",
+        dailyUsageLimit: 500,
+        dailyUsageCount: 0,
+        totalUsageCount: 2000,
+        dailyVoucherSales: 0,
+        totalVoucherSales: 2000,
+        likedCount: 0
+      },
+      {
+        id: 3,
+        uniqueIdentifier: "string",
+        orderNumber: 0,
+        used: true,
+        restaurantId: 2,
+        restaurantName: "상록원2층",
+        menuItemId: 23,
+        menuName: "백반-리코타치즈샐러드",
+        menuPrice: 4500,
+        operatingHours: "10:30-14:00",
+        dailyUsageLimit: 500,
+        dailyUsageCount: 0,
+        totalUsageCount: 2000,
+        dailyVoucherSales: 0,
+        totalVoucherSales: 2000,
+        likedCount: 0
+      }
+    
   ];  // tickets 배열이 비어 있는 상태
 
   const [activeTab, setActiveTab] = useState(tickets[0]?.id || '');
@@ -27,7 +80,7 @@ function FoodTicket() {
         className={`menu-tab ${activeTab === ticket.id ? 'active' : ''}`}
         onClick={() => setActiveTab(ticket.id)}
       >
-        {ticket.id}
+        식권{ticket.id}
       </button>
     ));
   };
@@ -46,17 +99,17 @@ function FoodTicket() {
             activeTab === ticket.id && (
               <div key={ticket.id}>
                 <div className="qr-placeholder">
-                  <div className="qr-image">{ticket.qrText}</div>
+                  <div className="qr-image">{ticket.uniqueIdentifier}</div>
                 </div>
                 <div className="info-card">
-                  <h2>상록원 1층</h2>
+                  <h2><span>{ticket.restaurantName}</span></h2>
                   <p>(식사가능시간 : 11:00-16:00)</p>
                   <div className="menu-item">
-                    <span>{ticket.name}</span>
-                    <span className="price">{ticket.price}</span>
+                    <span>{ticket.menuName}</span>
+                    <span className="price">{ticket.menuPrice}</span>
                     <span className="heart">
                       <img src={heartIcon} alt="좋아요" className="heart-icon" />
-                      {ticket.likes}
+                      {ticket.likedCount}
                     </span>
                   </div>
                 </div>

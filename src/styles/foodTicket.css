@@ -82,7 +82,7 @@
     border: 1px solid #ffc062;
     border-radius: 10px;
     text-align: center;
-    width: 300px; /* 너비 200px로 설정 */
+    width: 400px; /* 너비 200px로 설정 */
     min-height: 300px; /* 최소 높이 설정 */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
