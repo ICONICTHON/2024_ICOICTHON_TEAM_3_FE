@@ -13,14 +13,8 @@
 
 .pay-result-message {
     background-color: white;
-<<<<<<< HEAD
     padding: 120px 150px;
     border-radius: 10px;
     font-size: 25px;
-=======
-    padding: 20px 40px;
-    border-radius: 10px;
-    font-size: 16px;
->>>>>>> 325d0c31e5baed5abe7b8496d31cc4650bab9bc0
     font-weight: bold;
 }
