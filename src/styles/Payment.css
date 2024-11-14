@@ -1,0 +1,68 @@
+.payment-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .payment-modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .close-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .payment-content {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .menu-item {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .menu-price {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 10px;
+  }
+  
+  .payment-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .cancel-button, .purchase-button {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .cancel-button {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .purchase-button {
+    background-color: #007bff;
+    color: white;
+  }

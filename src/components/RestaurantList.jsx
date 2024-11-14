@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/restaurantList.css';
 import heartIcon from '../images/heart.png'; // 즐겨찾기 아이콘 추가
+import Payment from './Payment' // 결제 컴포넌트 추가
 
 const restaurants = [
   {
@@ -62,10 +63,18 @@ const restaurants = [
 
 function RestaurantList() {
   const [openIndex, setOpenIndex] = useState(null);
+  const [selectedMenuItem, setSelectedMenuItem] = useState(null);
+  const [isPaymentOpen, setIsPaymentOpen] = useState(false);
 
   // 특정 인덱스의 레스토랑을 토글하는 함수
   const toggleDetails = (index) => {
     setOpenIndex(openIndex === index ? null : index);
+  };
+
+  /* 메뉴 아이템 클릭 시 결제 모달 열기 */
+  const handleMenuItemClick = (menuItem) => {
+    setSelectedMenuItem(menuItem);
+    setIsPaymentOpen(true);
   };
 
   return (
@@ -78,11 +87,15 @@ function RestaurantList() {
               <p>주중: {restaurant.weekdaysHours}</p>
               <p>주말: {restaurant.weekendHours}</p>
               <p>공휴일: {restaurant.holydayHours}</p>
-            </div>
+            </div> 
           </div>
           <div className={`menu-list ${openIndex === index ? 'open' : ''}`}>
             {restaurant.menu.map((menuItem, menuIndex) => (
-              <div key={menuIndex} className="menu-item">
+              <div 
+                key={menuIndex} 
+                className="menu-item"
+                onClick={() => handleMenuItemClick(menuItem)}
+              >
                 <span>{menuItem.item}</span>
                 <span>{menuItem.price}</span>
                 <span className="like">
@@ -94,6 +107,11 @@ function RestaurantList() {
           </div>
         </div>
       ))}
+      <Payment
+        isOpen={isPaymentOpen}
+        onClose={() => setIsPaymentOpen(false)}
+        menuItem={selectedMenuItem || { item: '', price: '' }}
+      />
     </section>
   );
 }
