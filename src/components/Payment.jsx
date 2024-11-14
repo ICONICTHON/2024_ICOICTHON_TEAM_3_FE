@@ -34,6 +34,15 @@ function Payment({ isOpen, onClose, menuItem }) {
     } catch (error) {
       console.error("결제 요청 중 오류 발생:", error);
       alert("결제 요청 중 문제가 발생했습니다. 다시 시도해 주세요.");
+      if (error.response) {
+        console.log("Response error:", error.response); // 응답 관련 에러 출력
+        console.log("Status code:", error.response.status); // 상태 코드 출력
+        console.log("Error message:", error.response.data); // 응답 데이터 출력
+      } else if (error.request) {
+        console.log("Request error:", error.request); // 요청이 이루어지지 않은 경우
+      } else {
+        console.log("Error message:", error.message); // 그 외의 에러 메시지 출력
+      }
     } finally {
       setIsLoading(false);
       console.log(menuItem);
