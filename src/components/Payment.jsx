@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "../styles/Payment.css";
 import Load from "./Load";
 import KakaoPay from "./KakaoPay";
@@ -9,37 +10,34 @@ function Payment({ isOpen, onClose, menuItem }) {
 
   if (!isOpen) return null;
 
-  const handlePayment = () => {
+  const handlePayment = async () => {
     setIsLoading(true);
 
-    // 결제 처리 요청
-    const data = {
-      name: menuItem.item, // 카카오페이에 보낼 상품명
-      totalPrice: menuItem.price, // 카카오페이에 보낼 가격
-    };
+    try {
+      const price = parseInt(menuItem.price.replace(/[^0-9]/g, ""), 10);
+      const data = {
+        name: menuItem.item || "상품명", // 상품명
+        totalPrice: price || 20000, // 총 결제 금액
+      };
 
-    let baseUrl = window.location.origin; // 현재 도메인 기반으로 URL 생성
+      const baseUrl = "https://www.akofood.site"; // 실제 API 경로로 변경 필요
 
-    $.ajax({
-      type: "POST",
-      url: `${baseUrl}/order/pay/ready`,
-      data: JSON.stringify(data),
-      contentType: "application/json",
-      success: function (response) {
-        setIsLoading(false);
-        // 성공 시 카카오페이 결제 화면으로 이동
-        location.href = response.next_redirect_pc_url;
-      },
-      error: function (error) {
-        setIsLoading(false);
-        console.error("결제 준비 실패", error);
-      },
-    });
+      const response = await axios.post(`${baseUrl}/order/pay/ready`, data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-    //    setTimeout(() => {
-    //      setIsLoading(false);
-    //      setShowKakaoPay(true);
-    //    }, 1000);
+      if (response.data.next_redirect_pc_url) {
+        window.location.href = response.data.next_redirect_pc_url;
+      }
+    } catch (error) {
+      console.error("결제 요청 중 오류 발생:", error);
+      alert("결제 요청 중 문제가 발생했습니다. 다시 시도해 주세요.");
+    } finally {
+      setIsLoading(false);
+      console.log(menuItem);
+    }
   };
 
   const handleKakaoPayClose = () => {
