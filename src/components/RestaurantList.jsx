@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/restaurantList.css';
 import heartIcon from '../images/heart.png';
+import heartActiveIcon from '../images/heartActive.png';
 import Payment from './Payment';
 import axios from 'axios';
 
@@ -54,7 +55,7 @@ function RestaurantList({ searchResults = [] }) {
                       onClick={() => !disabledLikes[menuItem.id] && handleLike(menuItem.id, restaurantIndex, menuItemIndex)}
                       style={{ cursor: disabledLikes[menuItem.id] ? 'default' : 'pointer', opacity: disabledLikes[menuItem.id] ? 0.5 : 1, display: 'flex', alignItems: 'center', gap: '5px' }}
                     >
-                      <img src={heartIcon} alt="좋아요" className="heart-icon" style={{ width: '16px', height: '16px' }} />
+                      <img src={disabledLikes[menuItem.id] ? heartActiveIcon : heartIcon} alt="좋아요" className="heart-icon" style={{ width: '16px', height: '16px' }} />
                       <span style={{ fontSize: '16px', fontWeight: 'bold' }}>{menuItem.likedCount}</span>
                     </div>
                   </div>
