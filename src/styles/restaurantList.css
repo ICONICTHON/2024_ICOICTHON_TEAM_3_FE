@@ -42,22 +42,25 @@
   }
 
   /* 각 요소의 폭을 동일하게 배치 */
-  .menu-item span:first-child {
+  .menu-item-res span:first-child {
     flex: 1; /* 메뉴 이름 부분의 비율 */
   }
 
-  .menu-item span:nth-child(2) {
+  .menu-item-res span:nth-child(2) {
     flex: 1; /* 가격 부분의 비율 */
     text-align: center;
   }
 
-  .menu-item {
+  .menu-item-res {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+    font-weight: bold;
+    margin-top: 30px;
+    padding-top: 10px;
+}
   
-  .menu-item span {
+  .menu-item-res span {
     font-size: 0.9em;
   }
   

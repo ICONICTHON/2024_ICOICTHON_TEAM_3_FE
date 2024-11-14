@@ -82,7 +82,7 @@ function RestaurantList() {
           </div>
           <div className={`menu-list ${openIndex === index ? 'open' : ''}`}>
             {restaurant.menu.map((menuItem, menuIndex) => (
-              <div key={menuIndex} className="menu-item">
+              <div key={menuIndex} className="menu-item-res">
                 <span>{menuItem.item}</span>
                 <span>{menuItem.price}</span>
                 <span className="like">
