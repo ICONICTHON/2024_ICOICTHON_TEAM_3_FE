@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import FoodTicket from './components/FoodTicket';
 import Favorite from './components/Favorite';
 
+
 function App() {
   const [selectedTime, setSelectedTime] = useState('점심');
   const [activeLang, setActiveLang] = useState('KOR');
