@@ -6,7 +6,7 @@
     background-color: white;
     padding: 20px;
     margin-bottom: 10px;
-    border-radius: 10px;
+    border-radius: 30px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
@@ -38,16 +38,23 @@
   }
   
   .menu-list.open {
-    max-height: 500px; /* 충분히 큰 값으로 설정하여 내용이 모두 표시되도록 */
-    padding-top: 10px; /* 펼쳐질 때 패딩 추가 */
+    max-height: 500px;
   }
-  
+
+  /* 각 요소의 폭을 동일하게 배치 */
+  .menu-item span:first-child {
+    flex: 1; /* 메뉴 이름 부분의 비율 */
+  }
+
+  .menu-item span:nth-child(2) {
+    flex: 1; /* 가격 부분의 비율 */
+    text-align: center;
+  }
+
   .menu-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px solid #f0f0f0;
   }
   
   .menu-item span {
@@ -55,7 +62,7 @@
   }
   
   .like {
-    display: flex;
+    flex: 0.2;
     align-items: center;
   }
   
