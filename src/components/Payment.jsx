@@ -14,7 +14,9 @@ function Payment({ isOpen, onClose, menuItem }) {
     setIsLoading(true);
 
     try {
-      const price = parseInt(menuItem.price.replace(/[^0-9]/g, ""), 10);
+      const price = menuItem?.price
+        ? parseInt(menuItem.price.replace(/[^0-9]/g, ""), 10)
+        : 99;
       const data = {
         name: menuItem.item || "상품명", // 상품명
         totalPrice: price || 20000, // 총 결제 금액
