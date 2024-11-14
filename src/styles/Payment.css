@@ -30,8 +30,9 @@
 }
 
 .favorite-icon {
-    font-size: 24px; /* 아이콘 크기를 조금 더 키움 */
     cursor: pointer;
+    width: 24px;  /* 이미지 크기에 맞게 조절 */
+    height: 24px; /* 이미지 크기에 맞게 조절 */
 }
 
 .payment-content {
