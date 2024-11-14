@@ -60,8 +60,8 @@ function Payment({ isOpen, onClose, menuItem }) {
           <span className="favorite-icon">⭐</span>
         </div>
         <div className="payment-content">
-          <p className="menu-item-payment">{menuItem.item}</p>
-          <p className="menu-price">{menuItem.price}</p>
+          <p className="menu-item-payment">{menuItem.menuName}</p>
+          <p className="menu-price">{menuItem.menuPrice}</p>
         </div>
         <div className="payment-actions">
           <button className="purchase-button" onClick={handlePayment}>
