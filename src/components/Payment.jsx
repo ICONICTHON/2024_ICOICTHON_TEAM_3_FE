@@ -1,16 +1,22 @@
-import React, { useState } from "react";
-import axios from "axios";
-import "../styles/Payment.css";
-import Load from "./Load";
-import KakaoPay from "./KakaoPay";
+import React, { useState } from 'react';
+import '../styles/Payment.css';
+import Load from './Load';
+import KakaoPay from './KakaoPay';
+import Favorite from '../images/Favorite.png';
+import FavoriteOn from '../images/FavoriteOn.png';
 
 function Payment({ isOpen, onClose, menuItem }) {
   const [isLoading, setIsLoading] = useState(false);
   const [showKakaoPay, setShowKakaoPay] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   if (!isOpen) return null;
 
-  const handlePayment = async () => {
+  const toggleFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
+
+  const handlePayment = () => {
     setIsLoading(true);
 
     const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -73,7 +79,12 @@ function Payment({ isOpen, onClose, menuItem }) {
     <div className="payment-modal-overlay">
       <div className="payment-modal">
         <div className="payment-header">
-          <span className="favorite-icon">⭐</span>
+          <img 
+            src={isFavorite ? FavoriteOn : Favorite} 
+            alt="즐겨찾기" 
+            className="favorite-icon"
+            onClick={toggleFavorite}
+          />
         </div>
         <div className="payment-content">
           <p className="menu-item-payment">{menuItem.menuName}</p>
