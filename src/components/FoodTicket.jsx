@@ -2,11 +2,13 @@ import { useState } from 'react';
 import '../styles/foodTicket.css';
 import heartIcon from '../images/heart.png';
 
+
+
 function FoodTicket() {
   const tickets = [
-    { id: '식권1', qrText: 'QR 코드 1 (150 x 150)', name: '삼겹 김치 철판', price: '6500원', likes: 99 },
-    { id: '식권2', qrText: 'QR 코드 2 (150 x 150)', name: '돼지 불백', price: '7000원', likes: 88 },
-    { id: '식권3', qrText: 'QR 코드 3 (150 x 150)', name: '돼지 불백', price: '7000원', likes: 88 },
+    { id: '식권1', qrText: 'https://example.com/qrcode1', name: '삼겹 김치 철판', price: '6500원', likes: 99 },
+    { id: '식권2', qrText: 'https://example.com/qrcode2', name: '돼지 불백', price: '7000원', likes: 88 },
+    { id: '식권3', qrText: 'https://example.com/qrcode3', name: '돼지 불백', price: '7000원', likes: 88 },
   ];  // tickets 배열이 비어 있는 상태
 
   const [activeTab, setActiveTab] = useState(tickets[0]?.id || '');
