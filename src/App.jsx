@@ -16,24 +16,22 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* Header와 Footer는 모든 페이지에 공통으로 렌더링 */}
         <Header activeLang={activeLang} setActiveLang={setActiveLang} />
         
-        <Routes>
-          {/* 메인 페이지 경로 */}
-          <Route
-            path="/"
-            element={
-              <>
-                <TimeNav selectedTime={selectedTime} setSelectedTime={setSelectedTime} />
-                <RestaurantList />
-              </>
-            }
-          />
-          
-          {/* 식권 확인 페이지 경로 */}
-          <Route path="/food-ticket" element={<FoodTicket />} />
-        </Routes>
+        <div className="content-wrapper"> {/* Footer와 겹치지 않도록 padding-bottom 추가 */}
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <TimeNav selectedTime={selectedTime} setSelectedTime={setSelectedTime} />
+                  <RestaurantList />
+                </>
+              }
+            />
+            <Route path="/food-ticket" element={<FoodTicket />} />
+          </Routes>
+        </div>
         
         <Footer activeFooter={activeFooter} setActiveFooter={setActiveFooter} />
       </div>
