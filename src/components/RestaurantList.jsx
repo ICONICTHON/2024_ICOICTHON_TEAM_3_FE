@@ -3,65 +3,7 @@ import '../styles/restaurantList.css';
 import heartIcon from '../images/heart.png'; // 즐겨찾기 아이콘 추가
 import Payment from './Payment' // 결제 컴포넌트 추가
 
-const restaurants = [
-  {
-    name: '상록원 1층',
-    weekdaysHours: '08:00~19:00',
-    weekendHours: '08:00~19:00',
-    holydayHours: '08:00~19:00',
-    menu: [
-      { item: '삼겹 김치 철판', price: '6500원', likes: 99 },
-      { item: '된장찌개', price: '5500원', likes: 85 },
-      { item: '제육볶음', price: '6000원', likes: 90 },
-    ],
-  },
-  {
-    name: '상록원 2층',
-    weekdaysHours: '09:00~20:00',
-    weekendHours: '10:00~18:00',
-    holydayHours: '10:00~18:00',
-    menu: [
-      { item: '칼국수', price: '5000원', likes: 70 },
-      { item: '돈까스', price: '7500원', likes: 120 },
-      { item: '김치볶음밥', price: '5500원', likes: 95 },
-    ],
-  },
-  {
-    name: '상록원 3층',
-    weekdaysHours: '08:00~18:00',
-    weekendHours: '08:00~15:00',
-    holydayHours: '휴무',
-    menu: [
-      { item: '비빔밥', price: '6000원', likes: 110 },
-      { item: '불고기', price: '7000원', likes: 130 },
-      { item: '떡볶이', price: '4500원', likes: 60 },
-    ],
-  },
-  {
-    name: '남산학사',
-    weekdaysHours: '07:00~21:00',
-    weekendHours: '08:00~19:00',
-    holydayHours: '08:00~19:00',
-    menu: [
-      { item: '라면', price: '3000원', likes: 50 },
-      { item: '김밥', price: '4000원', likes: 90 },
-      { item: '치즈돈까스', price: '8000원', likes: 125 },
-    ],
-  },
-  {
-    name: '가든쿡',
-    weekdaysHours: '08:00~19:00',
-    weekendHours: '09:00~17:00',
-    holydayHours: '09:00~17:00',
-    menu: [
-      { item: '햄버거', price: '5500원', likes: 150 },
-      { item: '스파게티', price: '7500원', likes: 200 },
-      { item: '샐러드', price: '6000원', likes: 80 },
-    ],
-  },
-];
-
-function RestaurantList() {
+function RestaurantList({ searchResults }) {
   const [openIndex, setOpenIndex] = useState(0);
   const [selectedMenuItem, setSelectedMenuItem] = useState(null);
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
@@ -79,29 +21,20 @@ function RestaurantList() {
 
   return (
     <section className="restaurant-list">
-      {restaurants.map((restaurant, index) => (
-        <div key={index} className="restaurant">
+      {searchResults.map((restaurant, index) => (
+        <div key={restaurant.id} className="restaurant">
           <div className="restaurant-header" onClick={() => toggleDetails(index)}>
-            <h2>{restaurant.name}</h2>
-            <div className="hours">
-              <p>주중: {restaurant.weekdaysHours}</p>
-              <p>주말: {restaurant.weekendHours}</p>
-              <p>공휴일: {restaurant.holydayHours}</p>
-            </div> 
+            <h2>{restaurant.restaurantName}</h2>
           </div>
           <div className={`menu-list ${openIndex === index ? 'open' : ''}`}>
-            {restaurant.menu.map((menuItem, menuIndex) => (
-              <div 
-                key={menuIndex} 
-                className="menu-item-res"
-                onClick={() => handleMenuItemClick(menuItem)}
-              >
-                <span>{menuItem.item}</span>
-                <span>{menuItem.price}</span>
-                <span className="like">
+            {restaurant.menuItems.map((menuItem) => (
+              <div key={menuItem.id} className="menu-item-res">
+                <span>{menuItem.menuName}</span>
+                <span>{menuItem.menuPrice}원</span>
+                <button className="like-button" onClick={() => handleLike(menuItem.id)}>
                   <img src={heartIcon} alt="좋아요" className="heart-icon" />
-                  {menuItem.likes}
-                </span>
+                  {menuItem.likedCount}
+                </button>
               </div>
             ))}
             {/* 결제 모달 */}
