@@ -104,16 +104,10 @@ function RestaurantList() {
                 </span>
               </div>
             ))}
-            {/* 결제 모달 */}
-            <Payment
-              isOpen={isPaymentOpen}
-              onClose={() => setIsPaymentOpen(false)}
-              menuItem={selectedMenuItem || { item: '', price: '' }}
-              />  
           </div>
         </div>
       ))}
-      {/* 결제 모달 */}
+      {/* Payment 컴포넌트는 여기에 한 번만 렌더링 */}
       <Payment
         isOpen={isPaymentOpen}
         onClose={() => setIsPaymentOpen(false)}
