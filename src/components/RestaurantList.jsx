@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+// import PropTypes from 'prop-types';
 import '../styles/restaurantList.css';
 import heartIcon from '../images/heart.png';
 import Payment from './Payment';
 
-function RestaurantList({ searchResults }) {
+function RestaurantList({ searchResults = [] }) {
   const [openIndex, setOpenIndex] = useState(0);
   const [selectedMenuItem, setSelectedMenuItem] = useState(null);
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
@@ -21,7 +22,7 @@ function RestaurantList({ searchResults }) {
 
   return (
     <section className="restaurant-list">
-      {searchResults.length === 0 ? (
+      {Array.isArray(searchResults) && searchResults.length === 0 ? (
         <div>검색 결과가 없습니다.</div> // 결과가 없으면 메시지 출력
       ) : (
         searchResults.map((restaurant, index) => (
@@ -52,10 +53,27 @@ function RestaurantList({ searchResults }) {
       <Payment
         isOpen={isPaymentOpen}
         onClose={() => setIsPaymentOpen(false)}
-        menuItem={selectedMenuItem || { menuName: '', menuPrice: '' }}
+        menuItem={selectedMenuItem || { item: '', price: '' }}
       />
     </section>
   );
 }
+
+// RestaurantList.propTypes = {
+//   searchResults: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.number.isRequired,
+//       restaurantName: PropTypes.string.isRequired,
+//       menuItems: PropTypes.arrayOf(
+//         PropTypes.shape({
+//           id: PropTypes.number.isRequired,
+//           menuName: PropTypes.string.isRequired,
+//           menuPrice: PropTypes.number.isRequired,
+//           likedCount: PropTypes.number,
+//         })
+//       ),
+//     })
+//   ).isRequired,
+// };
 
 export default RestaurantList;

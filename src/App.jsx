@@ -22,7 +22,8 @@ function App() {
       const response = await axios.get(`${API_BASE_URL}/restaurants`, {
         params: { search_menu: searchTerm },
       });
-      setSearchResults(response.data);
+      setSearchResults(Array.isArray(response.data) ? response.data : []);
+      console.log("검색 결과:", response.data);
     } catch (error) {
       console.error("검색 오류:", error);
     }
