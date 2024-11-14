@@ -75,3 +75,18 @@
     margin-right: 5px;
   }
   
+  .like-container {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Adjusts space between the icon and the number */
+}
+
+.heart-icon {
+  width: 16px; /* Set a consistent size for the icon */
+  height: 16px;
+}
+
+.like-container span {
+  font-size: 16px; /* Set a consistent font size */
+  font-weight: bold;
+}
