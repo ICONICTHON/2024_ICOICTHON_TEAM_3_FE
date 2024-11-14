@@ -61,7 +61,7 @@ const restaurants = [
 ];
 
 function RestaurantList() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(0);
 
   // 특정 인덱스의 레스토랑을 토글하는 함수
   const toggleDetails = (index) => {
