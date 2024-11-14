@@ -6,9 +6,9 @@ import heartIcon from '../images/heart.png';
 
 function FoodTicket() {
   const tickets = [
-    { id: '식권1', qrText: 'https://example.com/qrcode1', name: '삼겹 김치 철판', price: '6500원', likes: 99 },
-    { id: '식권2', qrText: 'https://example.com/qrcode2', name: '돼지 불백', price: '7000원', likes: 88 },
-    { id: '식권3', qrText: 'https://example.com/qrcode3', name: '돼지 불백', price: '7000원', likes: 88 },
+    { id: '식권1', qrText: 'https://example.com/qrcode1', name: '삼겹김치철판', price: '6500원', likes: 99 },
+    { id: '식권2', qrText: 'https://example.com/qrcode2', name: '돼지불백', price: '7000원', likes: 88 },
+    { id: '식권3', qrText: 'https://example.com/qrcode3', name: '돼지불백', price: '7000원', likes: 88 },
   ];  // tickets 배열이 비어 있는 상태
 
   const [activeTab, setActiveTab] = useState(tickets[0]?.id || '');
@@ -50,9 +50,7 @@ function FoodTicket() {
                 </div>
                 <div className="info-card">
                   <h2>상록원 1층</h2>
-                  <p>주중: 08:00~19:00</p>
-                  <p>주말: 08:00~19:00</p>
-                  <p>공휴일: 08:00~19:00</p>
+                  <p>(식사가능시간 : 11:00-16:00)</p>
                   <div className="menu-item">
                     <span>{ticket.name}</span>
                     <span className="price">{ticket.price}</span>

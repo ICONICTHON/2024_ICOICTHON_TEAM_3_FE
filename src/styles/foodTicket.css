@@ -64,15 +64,30 @@
     border: 1px solid #ffc062;
 }
 
+/* info-card를 감싸는 컨테이너 추가 */
+/* info-card를 감싸는 컨테이너 */
+.info-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* 가운데 정렬 */
+    width: 100%; /* 전체 너비로 설정 */
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+/* 모든 info-card의 크기를 균일하게, 너비를 200px로 유지 */
 .info-card {
     background-color: #ffffff;
     padding: 40px;
     border: 1px solid #ffc062;
     border-radius: 10px;
     text-align: center;
-    width: 90%;
-    max-width: 400px;
+    width: 300px; /* 너비 200px로 설정 */
+    min-height: 300px; /* 최소 높이 설정 */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .info-card h2 {
@@ -85,6 +100,8 @@
     color: black;
     margin: 5px 0;
 }
+
+
 
 .menu-item {
     display: flex;
@@ -112,6 +129,7 @@
     width: 100%;
     height: calc(100vh - 80px); /* Ensure it takes the full screen minus the header height */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
 }
+
