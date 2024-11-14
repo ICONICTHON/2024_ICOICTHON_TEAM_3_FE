@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import PropTypes from 'prop-types';
 import '../styles/restaurantList.css';
 import heartIcon from '../images/heart.png';
 import Payment from './Payment';
@@ -58,22 +57,5 @@ function RestaurantList({ searchResults = [] }) {
     </section>
   );
 }
-
-// RestaurantList.propTypes = {
-//   searchResults: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.number.isRequired,
-//       restaurantName: PropTypes.string.isRequired,
-//       menuItems: PropTypes.arrayOf(
-//         PropTypes.shape({
-//           id: PropTypes.number.isRequired,
-//           menuName: PropTypes.string.isRequired,
-//           menuPrice: PropTypes.number.isRequired,
-//           likedCount: PropTypes.number,
-//         })
-//       ),
-//     })
-//   ).isRequired,
-// };
 
 export default RestaurantList;
