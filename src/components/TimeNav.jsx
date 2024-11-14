@@ -9,6 +9,7 @@ import dinnerIcon from '../images/Dinner.png';
 import dinnerIconActive from '../images/DinnerOn.png';
 import searchIcon from '../images/Search.png';
 
+
 function TimeNav({ selectedTime, setSelectedTime, onSearch }) {
   const [searchTerm, setSearchTerm] = useState(""); // 검색어 상태
 
