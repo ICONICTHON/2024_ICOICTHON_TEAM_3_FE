@@ -13,6 +13,8 @@ function Payment({ isOpen, onClose, menuItem }) {
   const handlePayment = async () => {
     setIsLoading(true);
 
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
     try {
       const price = menuItem?.menuPrice
         ? parseInt(menuItem.menuPrice.toString().replace(/[^0-9]/g, ""), 10)
@@ -21,15 +23,17 @@ function Payment({ isOpen, onClose, menuItem }) {
       const data = {
         name: menuItem.item || "상품명", // 상품명
         totalPrice: price || 20000, // 총 결제 금액
-      };
+      }; // 실제 API 경로로 변경 필요
 
-      const baseUrl = "https://www.akofood.site"; // 실제 API 경로로 변경 필요
-
-      const response = await axios.post(`${baseUrl}/order/pay/ready`, data, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await axios.post(
+        `${API_BASE_URL}/order/pay/ready`,
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (response.data.next_redirect_pc_url) {
         window.location.href = response.data.next_redirect_pc_url;
