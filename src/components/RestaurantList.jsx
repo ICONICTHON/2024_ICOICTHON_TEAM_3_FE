@@ -3,7 +3,7 @@ import '../styles/restaurantList.css';
 import heartIcon from '../images/heart.png';
 import Payment from './Payment';
 
-function RestaurantList({ searchResults = [] }) {
+function RestaurantList({ searchResults }) {
   const [openIndex, setOpenIndex] = useState(0);
   const [selectedMenuItem, setSelectedMenuItem] = useState(null);
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
@@ -21,10 +21,10 @@ function RestaurantList({ searchResults = [] }) {
 
   return (
     <section className="restaurant-list">
-      {Array.isArray(searchResults) && searchResults.length === 0 ? (
-        <div>검색 결과가 없습니다.</div>
+      {searchResults.length === 0 ? (
+        <div>검색 결과가 없습니다.</div> // 결과가 없으면 메시지 출력
       ) : (
-        Array.isArray(searchResults) && searchResults.map((restaurant, index) => (
+        searchResults.map((restaurant, index) => (
           <div key={restaurant.id} className="restaurant">
             <div className="restaurant-header" onClick={() => toggleDetails(index)}>
               <h2>{restaurant.restaurantName}</h2>
