@@ -1,0 +1,98 @@
+.kakaopay-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .kakaopay-content {
+    width: 100%;
+    max-width: 400px;
+    min-height: 600px;
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .white-box {
+    background: white;
+    margin: 20px;
+    border-radius: 12px;
+    flex: 1;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .payment-tabs {
+    display: flex;
+    gap: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+  }
+  
+  .payment-tab {
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: #666;
+    cursor: pointer;
+    padding: 5px 0;
+  }
+  
+  .payment-tab.active {
+    color: black;
+    font-weight: bold;
+    border-bottom: 2px solid #FFEB00;
+  }
+  
+  .qr-content {
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .qr-description {
+    color: #333;
+    font-size: 14px;
+    margin: 20px 0;
+    line-height: 1.5;
+  }
+  
+  .qr-code {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #000;
+    cursor: pointer;
+    padding: 5px;
+  }
