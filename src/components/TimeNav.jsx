@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/timeNav.css';
 import '../styles/searchBar.css';
 import breakfastIcon from '../images/Breakfast.png';
-import breakfastIconActive from '../images/BreakfastOn.png'; // 활성화된 아침 아이콘
+import breakfastIconActive from '../images/BreakfastOn.png';
 import lunchIcon from '../images/Lunch.png';
-import lunchIconActive from '../images/LunchOn.png'; // 활성화된 점심 아이콘
+import lunchIconActive from '../images/LunchOn.png';
 import dinnerIcon from '../images/Dinner.png';
-import dinnerIconActive from '../images/DinnerOn.png'; // 활성화된 저녁 아이콘
+import dinnerIconActive from '../images/DinnerOn.png';
 import searchIcon from '../images/Search.png';
 
-function TimeNav({ selectedTime, setSelectedTime }) {
+function TimeNav({ selectedTime, setSelectedTime, onSearch }) {
+  const [searchTerm, setSearchTerm] = useState(""); // 검색어 상태
+
+  const handleInputChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSearchClick = () => {
+    console.log("검색 버튼 클릭됨:", searchTerm); // 추가
+    onSearch(searchTerm); // 검색어를 상위 컴포넌트로 전달
+  };
+
   return (
     <nav className="time-nav">
       <button
@@ -36,9 +47,16 @@ function TimeNav({ selectedTime, setSelectedTime }) {
         저녁
       </button>
       
-      <div className="search-container">
+      <div className="search-container" onClick={handleSearchClick}>
         <img src={searchIcon} alt="검색" />
-        <input type="text" className="search-bar" placeholder="검색하시오" />
+        <input
+          type="text"
+          className="search-bar"
+          placeholder="검색하시오"
+          value={searchTerm}
+          onChange={handleInputChange}
+          onKeyDown={(e) => e.key === 'Enter' && handleSearchClick()}
+        />
       </div>
     </nav>
   );

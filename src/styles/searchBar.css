@@ -1,10 +1,12 @@
 .search-container {
-    display: flex;
-    align-items: center;
-    border: 1px solid #d9d9d9;
-    border-radius: 5px;
-    padding: 5px 15px;
-  }
+  display: flex;
+  align-items: center;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  padding: 5px 15px;
+  background-color: transparent;
+  cursor: pointer;
+}
   
   .search-container img {
     width: 20px;
@@ -18,4 +20,3 @@
     font-size: 16px;
     flex-grow: 1;
   }
-  
