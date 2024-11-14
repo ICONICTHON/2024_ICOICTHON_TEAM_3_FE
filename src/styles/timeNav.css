@@ -27,8 +27,3 @@
     color: #ffc062;
     font-weight: bold;
   }
-  
-  .time-btn.active img {
-    filter: invert(85%) sepia(59%) saturate(982%) hue-rotate(312deg) brightness(103%) contrast(101%);
-  }
-  

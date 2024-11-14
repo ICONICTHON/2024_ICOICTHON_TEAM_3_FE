@@ -61,7 +61,7 @@ const restaurants = [
 ];
 
 function RestaurantList() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(0);
 
   // 특정 인덱스의 레스토랑을 토글하는 함수
   const toggleDetails = (index) => {
@@ -82,7 +82,7 @@ function RestaurantList() {
           </div>
           <div className={`menu-list ${openIndex === index ? 'open' : ''}`}>
             {restaurant.menu.map((menuItem, menuIndex) => (
-              <div key={menuIndex} className="menu-item">
+              <div key={menuIndex} className="menu-item-res">
                 <span>{menuItem.item}</span>
                 <span>{menuItem.price}</span>
                 <span className="like">
