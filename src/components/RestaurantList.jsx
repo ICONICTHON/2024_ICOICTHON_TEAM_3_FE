@@ -107,11 +107,12 @@ function RestaurantList() {
           </div>
         </div>
       ))}
+      {/* 결제 모달 */}
       <Payment
         isOpen={isPaymentOpen}
         onClose={() => setIsPaymentOpen(false)}
         menuItem={selectedMenuItem || { item: '', price: '' }}
-      />
+      /> 
     </section>
   );
 }
