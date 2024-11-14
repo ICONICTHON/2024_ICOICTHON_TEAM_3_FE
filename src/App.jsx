@@ -8,6 +8,7 @@ import TimeNav from './components/TimeNav';
 import RestaurantList from './components/RestaurantList';
 import Footer from './components/Footer';
 import FoodTicket from './components/FoodTicket';
+import Favorite from './components/Favorite';
 
 function App() {
   const [selectedTime, setSelectedTime] = useState('점심');
@@ -45,6 +46,7 @@ function App() {
               }
             />
             <Route path="/food-ticket" element={<FoodTicket />} />
+            <Route path="/favorite" element={<Favorite />} />
           </Routes>
         </div>
         

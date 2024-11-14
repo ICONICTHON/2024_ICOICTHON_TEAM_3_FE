@@ -17,7 +17,11 @@ function Footer({ activeFooter, setActiveFooter }) {
     setActiveFooter(section);
     if (section === '식권 확인') {
       navigate('/food-ticket');
-    } else {
+    } 
+    else if (section === '즐겨찾기') {
+      navigate('/favorite');
+    }
+    else {
       navigate('/');
     }
   };
