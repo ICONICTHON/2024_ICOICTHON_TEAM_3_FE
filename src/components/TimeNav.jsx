@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/timeNav.css';
 import '../styles/searchBar.css';
 import breakfastIcon from '../images/Breakfast.png';
@@ -21,6 +21,10 @@ function TimeNav({ selectedTime, setSelectedTime, onSearch }) {
     onSearch(searchTerm); // 검색어를 상위 컴포넌트로 전달
   };
 
+  useEffect(() => {
+    handleSearchClick();
+  }, [selectedTime]);
+  
   return (
     <nav className="time-nav">
       <button
