@@ -1,8 +1,24 @@
+/* Keep the header (menu-tabs-container) always visible */
+.menu-tabs-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none; /* Firefox에서 스크롤바 숨기기 */
+    background-color: #f1f1f1;
+    position: sticky;  /* Stick the menu to the top */
+    top: 0;  /* Stick it at the top */
+    z-index: 10;  /* Ensure it stays on top of other content */
+}
+
+.menu-tabs-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge에서 스크롤바 숨기기 */
+}
+
 .menu-tabs {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     background-color: #f1f1f1;
     padding: 10px 0;
+    white-space: nowrap;
 }
 
 .menu-tab {
@@ -13,12 +29,12 @@
     background: none;
     color: #333;
     font-size: 1rem;
+    display: inline-block;
 }
 
 .menu-tab.active {
     color: #ffc062;
     border-bottom: 2px solid #ffc062;
-    align-items: center;
 }
 
 .content {
@@ -83,4 +99,19 @@
 
 .price {
     color: #ffc062;
+}
+
+/* foodTicket.css 내부 */
+
+.no-tickets {
+    font-size: 2rem;
+    color: #ffc062;
+    text-align: center;
+    margin-top: 30px; /* Add some spacing below the header */
+    background-color: #f0f0f0;
+    width: 100%;
+    height: calc(100vh - 80px); /* Ensure it takes the full screen minus the header height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

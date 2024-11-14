@@ -62,7 +62,7 @@ const restaurants = [
 ];
 
 function RestaurantList() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(0);
   const [selectedMenuItem, setSelectedMenuItem] = useState(null);
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
 
@@ -93,7 +93,7 @@ function RestaurantList() {
             {restaurant.menu.map((menuItem, menuIndex) => (
               <div 
                 key={menuIndex} 
-                className="menu-item"
+                className="menu-item-res"
                 onClick={() => handleMenuItemClick(menuItem)}
               >
                 <span>{menuItem.item}</span>
@@ -104,6 +104,12 @@ function RestaurantList() {
                 </span>
               </div>
             ))}
+            {/* 결제 모달 */}
+            <Payment
+              isOpen={isPaymentOpen}
+              onClose={() => setIsPaymentOpen(false)}
+              menuItem={selectedMenuItem || { item: '', price: '' }}
+              />  
           </div>
         </div>
       ))}
