@@ -4,8 +4,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.13);
+    backdrop-filter: blur(3px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,11 +14,11 @@
 .payment-modal {
     background-color: #f8f9fa;
     padding: 40px 30px; /* 상하 패딩을 늘려서 내부 공간 확대 */
-    border-radius: 16px; /* 좀 더 부드러운 모서리 */
+    border-radius: 13px; /* 좀 더 부드러운 모서리 */
     width: 90%;
     max-width: 360px; /* 상자의 최대 너비를 설정 */
     min-height: 400px; /* 최소 높이를 설정하여 세로 길이 확보 */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     position: relative;
     text-align: center;
 }

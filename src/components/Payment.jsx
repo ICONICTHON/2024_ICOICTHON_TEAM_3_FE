@@ -15,7 +15,7 @@ function Payment({ isOpen, onClose, menuItem }) {
     setTimeout(() => {
       setIsLoading(false);
       setShowKakaoPay(true);
-    }, 2000);
+    }, 1000);
   };
 
   const handleKakaoPayClose = () => {
