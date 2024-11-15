@@ -54,14 +54,35 @@ function FoodTicket() {
         response.data.forEach(ticket => {
           newUsedStatus[ticket.uniqueIdentifier] = ticket.used;
         });
-        setUsedStatus(newUsedStatus);
+        
+        // 상태가 변경된 경우에만 업데이트
+        setUsedStatus(prevStatus => {
+          const hasChanges = Object.keys(newUsedStatus).some(
+            key => newUsedStatus[key] !== prevStatus[key]
+          );
+          return hasChanges ? newUsedStatus : prevStatus;
+        });
+
+        // 티켓 정보도 업데이트
+        setTickets(response.data.map(ticket => ({
+          uniqueIdentifier: ticket.uniqueIdentifier,
+          restaurant: ticket.restaurantName,
+          menuName: ticket.menuName,
+          menuPrice: ticket.menuPrice,
+          likedCount: ticket.likedCount,
+          operatingHours: ticket.operatingHours,
+          orderNumber: ticket.orderNumber,
+          used: ticket.used
+        })));
       } catch (err) {
         console.error('Error checking ticket status:', err);
       }
     };
 
+    // 초기 상태 확인
     checkUsedStatus();
 
+    // 2초마다 상태 확인
     const interval = setInterval(checkUsedStatus, 2000);
     return () => clearInterval(interval);
   }, [API_BASE_URL, userId]);
@@ -102,7 +123,7 @@ function FoodTicket() {
             activeTab === ticket.uniqueIdentifier && (
               <div key={ticket.uniqueIdentifier}>
                 <div className="qr-placeholder">
-                  {!ticket.used ? (
+                  {!usedStatus[ticket.uniqueIdentifier] ? (
                     <div className="qr-image">
                       <QRCodeSVG 
                         value={`http://akofood.site:8080/api/meal-vouchers/qr?unique_identifier=${ticket.uniqueIdentifier}`}
@@ -130,7 +151,7 @@ function FoodTicket() {
                     </span>
                   </div>
                 </div>
-                {ticket.used && (
+                {usedStatus[ticket.uniqueIdentifier] && (
                   <div className="order-number">
                     주문번호: {ticket.orderNumber}
                   </div>
