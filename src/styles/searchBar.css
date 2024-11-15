@@ -3,20 +3,23 @@
   align-items: center;
   border: 1px solid #d9d9d9;
   border-radius: 5px;
-  padding: 5px 15px;
+  padding: 5px 10px; /* Reduced padding */
   background-color: transparent;
   cursor: pointer;
+  width: fit-content; /* Automatically adjusts to the content size */
+  max-width: 200px; /* Set a maximum width to constrain the size */
 }
-  
-  .search-container img {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-  }
-  
-  .search-bar {
-    border: none;
-    outline: none;
-    font-size: 16px;
-    flex-grow: 1;
-  }
+
+.search-container img {
+  width: 18px; /* Slightly reduced icon size */
+  height: 18px;
+  margin-right: 8px; /* Reduced space between icon and input */
+}
+
+.search-bar {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  flex-grow: 1;
+  width: 100px; /* Set a fixed width for the input to limit its size */
+}
