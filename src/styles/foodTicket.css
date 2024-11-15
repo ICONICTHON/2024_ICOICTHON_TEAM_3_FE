@@ -1,16 +1,15 @@
-/* Keep the header (menu-tabs-container) always visible */
 .menu-tabs-container {
     overflow-x: auto;
     white-space: nowrap;
-    scrollbar-width: none; /* Firefox에서 스크롤바 숨기기 */
+    scrollbar-width: none; 
     background-color: #f1f1f1;
-    position: sticky;  /* Stick the menu to the top */
-    top: 0;  /* Stick it at the top */
-    z-index: 10;  /* Ensure it stays on top of other content */
+    position: sticky;  
+    top: 0;  
+    z-index: 10;  
 }
 
 .menu-tabs-container::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Edge에서 스크롤바 숨기기 */
+    display: none; 
 }
 
 .menu-tabs {
@@ -44,74 +43,136 @@
     align-items: center;
 }
 
+.info-card {
+    background-color: #ffffff;
+    padding: 80px;
+    border: 2.5px solid #ffc062;
+    border-radius: 20px;
+    width: 98vw;
+    max-width: 1000px;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    text-align: center;
+}
+
 .qr-placeholder {
-    padding: 50px;
+    width: 98vw;
+    max-width: 1000px;
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-bottom: 20px;
 }
 
 .qr-image {
-    width: 150px;
-    height: 150px;
-    background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
-    color: #aaa;
-    border-radius: 10px;
-    border: 1px solid #ffc062;
-}
-
-.info-card {
-    background-color: #ffffff;
-    padding: 40px;
-    border: 1px solid #ffc062;
-    border-radius: 10px;
-    text-align: center;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 30px;
+    border: 1px solid #000000;
+    padding: 20px;
 }
 
 .info-card h2 {
     color: black;
-    font-size: 1.25rem;
-    margin-bottom: 10px;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    text-align: left;
 }
 
 .info-card p {
     color: black;
-    margin: 5px 0;
+    margin: 10px 0;
+    text-align: right;
+    font-size: 1.4rem;
 }
 
 .menu-item {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    font-weight: bold;
-    color: #333;
-    margin-top: 30px;
-    border-top: 1px solid #f0f0f0;
-    padding-top: 10px;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 2.5px solid #eee;
+    font-size: 1.5rem;
+    width: 100%;  
+}
+
+/* 메뉴 이름 */
+.menu-item span:first-child {
+    flex: 1;  
+    text-align: center;  
+    font-size: 1.5rem;
+    margin-left: auto;  
+    padding-left: 0;  
+    margin-right: 150px;  
 }
 
 .price {
-    color: #ffc062;
+    color: #000000;  
+    font-size: 1.5rem;
+    margin-right: 50px;
 }
 
-/* foodTicket.css 내부 */
+.heart {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.5rem;
+    margin-right: 50px;
+}
+
+.heart-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.info-card h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.info-card p {
+    text-align: center;
+    font-size: 1.4rem;
+    margin: 10px 0;
+}
+
 
 .no-tickets {
     font-size: 2rem;
     color: #ffc062;
     text-align: center;
-    margin-top: 30px; /* Add some spacing below the header */
+    margin-top: 30px; 
     background-color: #f0f0f0;
     width: 100%;
-    height: calc(100vh - 80px); /* Ensure it takes the full screen minus the header height */
+    height: calc(100vh - 80px); 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.operation-hours {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.operation-hours h2 {
+    margin: 0;  
+    flex: 1;  
+    text-align: center;  
+    margin-left: auto;  
+    margin-top : 35px;
+    padding-left: 0;  
+    margin-right: 150px; 
+}
+
+.hours-info {
+    text-align: right;  
+    margin-right: 50px;
 }

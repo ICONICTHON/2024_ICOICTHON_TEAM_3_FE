@@ -104,12 +104,22 @@ function Payment({ isOpen, onClose, menuItem }) {
     onClose();
   };
 
+  const handleOverlayClick = (e) => {
+    if (e.target.className === 'payment-modal-overlay') {
+      onClose();
+    }
+  };
+
+  const handleModalClick = (e) => {
+    e.stopPropagation();
+  };
+
   if (isLoading) return <Load />;
   if (showKakaoPay) return <KakaoPay menuItem={menuItem} onClose={handleKakaoPayClose} />;
 
   return (
-    <div className="payment-modal-overlay">
-      <div className="payment-modal">
+    <div className="payment-modal-overlay" onClick={handleOverlayClick}>
+      <div className="payment-modal" onClick={handleModalClick}>
         <div className="payment-header">
           <img 
             src={isFavorite ? FavoriteOn : Favorite} 
@@ -120,7 +130,7 @@ function Payment({ isOpen, onClose, menuItem }) {
         </div>
         <div className="payment-content">
           <p className="menu-item-payment">{menuItem.menuName}</p>
-          <p className="menu-price">{menuItem.menuPrice}</p>
+          <p className="menu-price">{menuItem.menuPrice}원</p>
         </div>
         <div className="payment-actions">
           <button className="purchase-button" onClick={handlePayment}>
