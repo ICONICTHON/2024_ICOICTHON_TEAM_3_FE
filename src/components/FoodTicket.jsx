@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../styles/foodTicket.css';
 import heartIcon from '../images/heart.png';
-
+import { QRCodeSVG } from 'qrcode.react';
 
 
 function FoodTicket() {
@@ -46,13 +46,23 @@ function FoodTicket() {
             activeTab === ticket.id && (
               <div key={ticket.id}>
                 <div className="qr-placeholder">
-                  <div className="qr-image">{ticket.qrText}</div>
+                  <div className="qr-image">
+                  <QRCodeSVG 
+                  value={`https://payment.kakao.com/${ticket.id}`}
+                  size={250}
+                  level="H"
+                />
+                  </div>
                 </div>
                 <div className="info-card">
-                  <h2>상록원 1층</h2>
-                  <p>주중: 08:00~19:00</p>
-                  <p>주말: 08:00~19:00</p>
-                  <p>공휴일: 08:00~19:00</p>
+                  <div className="operation-hours">
+                    <h2>상록원 1층</h2>
+                    <div className="hours-info">
+                      <p>주중: 08:00~19:00</p>
+                      <p>주말: 08:00~19:00</p>
+                      <p>공휴일: 08:00~19:00</p>
+                    </div>
+                  </div>
                   <div className="menu-item">
                     <span>{ticket.name}</span>
                     <span className="price">{ticket.price}</span>
