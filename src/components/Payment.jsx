@@ -64,6 +64,8 @@ function Payment({ isOpen, onClose, menuItem }) {
         : 20000;
 
       const data = {
+        userId: userId,
+        menuItemId: menuItem.id,
         name: menuItem.item || "상품명", // 상품명
         totalPrice: price || 20000, // 총 결제 금액
       }; // 실제 API 경로로 변경 필요
