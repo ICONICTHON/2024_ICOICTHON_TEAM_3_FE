@@ -1,23 +1,37 @@
 .menu-tabs-container {
     overflow-x: auto;
     white-space: nowrap;
-    scrollbar-width: none; 
     background-color: #f1f1f1;
-    position: sticky;  
-    top: 0;  
-    z-index: 10;  
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    width: 100%;
 }
 
 .menu-tabs-container::-webkit-scrollbar {
-    display: none; 
+    height: 6px;
+    display: block;
+}
+
+.menu-tabs-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.menu-tabs-container::-webkit-scrollbar-thumb {
+    background: #817f7d;
+    border-radius: 4px;
+}
+
+.menu-tabs-container::-webkit-scrollbar-thumb:hover {
+    background: #817f7d;
 }
 
 .menu-tabs {
     display: inline-flex;
-    justify-content: center;
-    background-color: #f1f1f1;
     padding: 10px 0;
     white-space: nowrap;
+    min-width: min-content;
 }
 
 .menu-tab {
@@ -29,6 +43,7 @@
     color: #333;
     font-size: 1rem;
     display: inline-block;
+    flex-shrink: 0;
 }
 
 .menu-tab.active {
@@ -167,12 +182,39 @@
     flex: 1;  
     text-align: center;  
     margin-left: auto;  
-    margin-top : 35px;
+    margin-top : 15px;
     padding-left: 0;  
-    margin-right: 150px; 
+    margin-right: 150px;
+    margin-bottom: 0px;
 }
 
 .hours-info {
     text-align: right;  
     margin-right: 50px;
+    margin-top : 10px;
+}
+
+.used-message {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    padding: 100px 0;
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid #ffc062;
+    width: 250px;  /* QR 코드와 같은 크기 유지 */
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-number {
+    text-align: right;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    padding-right: 20px;
+    color: #333;
 }
